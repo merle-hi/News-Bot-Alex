@@ -1,0 +1,12 @@
+.button_style {
+  display: block;
+  margin: 5px auto;
+  padding: 5px 20px;
+  color: black;
+  font-size: 16;
+  font-style: normal;
+  font-weight: 100;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  background-color: rgb(246, 245, 239, 1);
+}
