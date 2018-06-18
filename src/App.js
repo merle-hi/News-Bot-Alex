@@ -55,7 +55,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-topline">Hey! You talk to Alex.</h1>
-          <h1 className="App-title">Alex' Daily Journal</h1>
+          <h1 className="App-title">
+            Alex' <i>Daily</i> Journal
+          </h1>
           <span className="App-date">{moment().format('MMMM Do YYYY')}</span>
           <hr className="s1" />
         </header>
