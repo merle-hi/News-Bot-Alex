@@ -1,56 +1,30 @@
 import React, { Component } from 'react'
-import moment from 'moment'
+import moment, { max } from 'moment'
+import { connect } from 'react-redux'
 
 import NewsFeed from './components/NewsFeed'
 import Button from './components/Button'
+import { getNewsItems, getNewArticle } from './Actions/Actions'
 
 import './App.css'
 import './button.css'
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      index: 0,
-      newsItems: [],
-      myNewsItems: [],
-      article: {},
-    }
-  }
   componentDidMount = () => {
-    const url =
-      'https://newsapi.org/v2/top-headlines?' +
-      'country=de&' +
-      'apiKey=f2e9267756a64e498d902165b4957062'
-    const req = new Request(url)
-    fetch(req)
-      .then(function(response) {
-        return response.json()
-      })
-      .then(data => {
-        this.setState({
-          newsItems: data.articles.map(news => ({
-            ...news,
-          })),
-        })
-      })
+    this.props.getNewsItems()
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, document.body.scrollHeight)
   }
 
   getNewArticle = () => {
-    const { index, newsItems, myNewsItems } = this.state
-    if (index < 20) {
-      let myNewsItemsList = myNewsItems
-      let myArticle = newsItems[index]
-      this.setState({
-        myNewsItems: [...myNewsItemsList, myArticle],
-        index: index + 1,
-      })
-    } else {
-      this.setState({ index: 0 })
-    }
+    let myArticle = this.props.newsItems[this.props.index]
+    this.props.getNewArticle(myArticle)
   }
 
   render() {
+    console.log(this.props.myNewsItems)
     return (
       <div className="App">
         <header className="App-header">
@@ -62,15 +36,17 @@ class App extends Component {
           <hr className="s1" />
         </header>
         <div className="newsfeed">
-          <NewsFeed myNewsItems={this.state.myNewsItems} />
+          {<NewsFeed myNewsItems={this.props.myNewsItems} />}
         </div>
         <footer>
           <section className="button_section">
             {/*  <span className="button_style">Tell me more</span> */}
-            <Button
-              text="Show me something else"
-              onClick={this.getNewArticle}
-            />
+            {
+              <Button
+                text="Show me something else"
+                onClick={this.getNewArticle}
+              />
+            }
           </section>
         </footer>
       </div>
@@ -78,4 +54,13 @@ class App extends Component {
   }
 }
 
-export default App
+const mapStateToProps = state => ({
+  newsItems: state.newsItems,
+  myNewsItems: state.myNewsItems,
+  index: state.index
+})
+
+export default connect(
+  mapStateToProps,
+  { getNewsItems, getNewArticle }
+)(App)
