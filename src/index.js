@@ -8,7 +8,7 @@ import initialState from './Reducers/InitialState'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-import './index.css'
+import '../src/css/index.css'
 
 const middleware = [thunk]
 
