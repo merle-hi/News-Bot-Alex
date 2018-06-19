@@ -1,19 +1,29 @@
-import { GET_NEWS_ITEMS, GET_NEW_ARTICLE } from '../Actions/types'
+import {
+  GET_NEWS_ITEMS,
+  ADD_TO_CHAT,
+  UPDATE_INDEX_COUNT,
+  UPDATE_BUTTON_LINK
+} from '../Actions/types'
 
 export default (state, action) => {
   switch (action.type) {
     case GET_NEWS_ITEMS:
       return { ...state, newsItems: action.payload }
-    case GET_NEW_ARTICLE:
-      if (state.index < 20) {
+    case ADD_TO_CHAT:
+      if (state.index < 19) {
         return {
           ...state,
-          myNewsItems: [...state.myNewsItems, action.payload],
-          index: state.index + 1
+          myNewsChat: [...state.myNewsChat, action.payload],
+          status: 'news'
         }
       } else {
-        return { ...state, index: 0 }
+        return { ...state, index: 0, status: 'end' }
       }
+    case UPDATE_INDEX_COUNT:
+      return { ...state, index: state.index + 1 }
+
+    case UPDATE_BUTTON_LINK:
+      return { ...state, buttonLink: action.payload }
 
     default:
       return state

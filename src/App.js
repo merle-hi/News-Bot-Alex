@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
-import moment, { max } from 'moment'
+import moment from 'moment'
 import { connect } from 'react-redux'
 
 import NewsFeed from './components/NewsFeed'
 import Button from './components/Button'
-import { getNewsItems, getNewArticle } from './Actions/Actions'
+import {
+  getNewsItems,
+  addToChat,
+  updateIndexCount,
+  updateButtonLink
+} from './Actions/Actions'
 
-import './App.css'
-import './button.css'
+import '../src/css/App.css'
+import '../src/css/button.css'
 
 class App extends Component {
   componentDidMount = () => {
@@ -18,16 +23,20 @@ class App extends Component {
     window.scrollTo(0, document.body.scrollHeight)
   }
 
-  getNewArticle = () => {
+  addToChat = buttonText => {
+    let newMessage = { title: 'Alex', description: buttonText }
+    this.props.addToChat(newMessage)
     let myArticle = this.props.newsItems[this.props.index]
-    this.props.getNewArticle(myArticle)
+    myArticle.sender = 'alex'
+    this.props.addToChat(myArticle)
+    this.props.updateIndexCount()
+    this.props.updateButtonLink(myArticle.url)
   }
 
   render() {
-    console.log(this.props.myNewsItems)
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
           <h1 className="App-topline">Hey! You talk to Alex.</h1>
           <h1 className="App-title">
             Alex' <i>Daily</i> Journal
@@ -35,20 +44,24 @@ class App extends Component {
           <span className="App-date">{moment().format('MMMM Do YYYY')}</span>
           <hr className="s1" />
         </header>
+
         <div className="newsfeed">
-          {<NewsFeed myNewsItems={this.props.myNewsItems} />}
+          {<NewsFeed myNewsChat={this.props.myNewsChat} />}
+          <footer>
+            <div>
+              {this.props.buttonLink && (
+                <a href={this.props.buttonLink}>
+                  <button className="button_style">Tell me more</button>
+                </a>
+              )}
+            </div>
+            <Button
+              buttonText={this.props.buttonText}
+              status={this.props.status}
+              onClick={this.addToChat}
+            />
+          </footer>
         </div>
-        <footer>
-          <section className="button_section">
-            {/*  <span className="button_style">Tell me more</span> */}
-            {
-              <Button
-                text="Show me something else"
-                onClick={this.getNewArticle}
-              />
-            }
-          </section>
-        </footer>
       </div>
     )
   }
@@ -56,11 +69,14 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   newsItems: state.newsItems,
-  myNewsItems: state.myNewsItems,
-  index: state.index
+  myNewsChat: state.myNewsChat,
+  index: state.index,
+  status: state.status,
+  buttonText: state.buttonText,
+  buttonLink: state.buttonLink
 })
 
 export default connect(
   mapStateToProps,
-  { getNewsItems, getNewArticle }
+  { getNewsItems, addToChat, updateIndexCount, updateButtonLink }
 )(App)

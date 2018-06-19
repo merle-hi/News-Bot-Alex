@@ -1,34 +1,70 @@
 import React, { Component } from 'react'
 import uid from 'uid'
-import './news.css'
+import '../css/news.css'
 import AlexIcon from '../img/Alex_Logo.svg'
 
 export default class NewsFeed extends Component {
-  render() {
-    return (
-      <section>
-        {this.props.myNewsItems.map(article => (
-          <div className="direction" key={uid(10)}>
+  renderNewsList() {
+    return this.props.myNewsChat.map(
+      article =>
+        article.sender === 'alex' ? (
+          <div className="news_message" key={uid(10)}>
             <div className="icon_alex">
-              <img src={AlexIcon} />
+              <img src={AlexIcon} alt="" />
             </div>
-            <div>
-              <div className="news_container">
-                <div>
-                  <h3>{article.title}</h3>
-                  <h4>— {article.author}</h4>
+
+            {!article.description ? (
+              <div>
+                <div className="news_container">
+                  <div>
+                    <h3>{article.title}</h3>
+                    {article.author && <h4>— {article.author}</h4>}
+                    {article.url && (
+                      <div>
+                        <a href={article.url}>
+                          <button className="button_more">more</button>
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className="news_container">
-                {article.description}
-                <a href={article.url}>
-                  <div className="button_more">more</div>
-                </a>
+            ) : (
+              <div>
+                <div className="news_container">
+                  <div>
+                    <h3>{article.title}</h3>
+                    {article.author && <h4>— {article.author}</h4>}
+                  </div>
+                </div>
+                <div className="news_container">
+                  {article.description}
+                  {article.url && (
+                    <div>
+                      <a href={article.url}>
+                        <button className="button_more">more</button>
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
+            )}
+          </div>
+        ) : (
+          <div className="chat_message" key={uid(10)}>
+            <div className="icon_alex">
+              <img src={AlexIcon} alt="" />
+            </div>
+            <div className="news_container">
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
             </div>
           </div>
-        ))}
-      </section>
+        )
     )
+  }
+
+  render() {
+    return <section>{this.renderNewsList()}</section>
   }
 }
