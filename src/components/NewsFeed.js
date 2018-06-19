@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uid from 'uid'
 import './news.css'
 import AlexIcon from '../img/Alex_Logo.svg'
 
@@ -7,7 +8,7 @@ export default class NewsFeed extends Component {
     return (
       <section>
         {this.props.myNewsItems.map(article => (
-          <div className="direction" key={article.publishedAt}>
+          <div className="direction" key={uid(10)}>
             <div className="icon_alex">
               <img src={AlexIcon} />
             </div>
