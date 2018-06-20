@@ -14,5 +14,6 @@ export default {
     'Show me something else',
     'Okay bye'
   ],
+  myHeadlines: [],
   buttonLink: ''
 }

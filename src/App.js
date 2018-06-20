@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import NewsFeed from './components/NewsFeed'
 import Button from './components/Button'
+import Headlines from './components/Headlines'
 import {
   getNewsItems,
   addToChat,
@@ -43,6 +44,7 @@ class App extends Component {
           </h1>
           <span className="App-date">{moment().format('MMMM Do YYYY')}</span>
           <hr className="s1" />
+          <Headlines />
         </header>
 
         <div className="newsfeed">
