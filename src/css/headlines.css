@@ -1,0 +1,20 @@
+a {
+  text-decoration: none;
+  color: #555;
+}
+
+.headlines_container {
+  display: flex;
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.headline {
+  width: 33%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.headline:active {
+  background-color: #ccc;
+}

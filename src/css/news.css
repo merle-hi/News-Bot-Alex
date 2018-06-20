@@ -14,12 +14,29 @@ a {
   background: black;
 }
 
-.news_message {
+.alex {
   display: flex;
+  justify-content: flex-start;
+}
+
+.user {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.news_message {
+  width: 80%;
+  display: flex;
+  background-color: rgb(246, 245, 239, 1);
 }
 
 .chat_message {
+  width: 80%;
   display: flex;
+}
+
+.chat_message .news_container {
+  background-color: rgb(218, 214, 192);
 }
 
 .icon_alex {

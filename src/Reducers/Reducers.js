@@ -2,7 +2,8 @@ import {
   GET_NEWS_ITEMS,
   ADD_TO_CHAT,
   UPDATE_INDEX_COUNT,
-  UPDATE_BUTTON_LINK
+  UPDATE_BUTTON_LINK,
+  SET_HEADLINES
 } from '../Actions/types'
 
 export default (state, action) => {
@@ -25,6 +26,8 @@ export default (state, action) => {
     case UPDATE_BUTTON_LINK:
       return { ...state, buttonLink: action.payload }
 
+    case SET_HEADLINES:
+      return { ...state, myHeadlines: action.payload }
     default:
       return state
   }
