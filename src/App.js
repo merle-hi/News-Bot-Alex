@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import NewsFeed from './components/NewsFeed'
 import Button from './components/Button'
 import Headlines from './components/Headlines'
+import Categories from './components/Categories'
+
 import {
   getNewsItems,
   addToChat,
@@ -51,6 +53,8 @@ class App extends Component {
           {<NewsFeed myNewsChat={this.props.myNewsChat} />}
           <footer>
             <div>
+              {this.props.status === 'start' && <Categories />}
+
               {this.props.buttonLink && (
                 <a href={this.props.buttonLink}>
                   <button className="button_style">Tell me more</button>

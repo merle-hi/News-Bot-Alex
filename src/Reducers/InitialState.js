@@ -15,5 +15,14 @@ export default {
     'Okay bye'
   ],
   myHeadlines: [],
-  buttonLink: ''
+  buttonLink: '',
+  categories: [
+    { id: 'business', text: 'business' },
+    { id: 'entertainment', text: 'entertainment' },
+    { id: 'general', text: 'general' },
+    { id: 'health', text: 'health' },
+    { id: 'science', text: 'science' },
+    { id: 'sport', text: 'sport' },
+    { id: 'technology', text: 'technology' }
+  ]
 }
