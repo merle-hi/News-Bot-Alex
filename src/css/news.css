@@ -31,7 +31,6 @@ a {
 }
 
 .chat_message {
-  width: 80%;
   display: flex;
 }
 
