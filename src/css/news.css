@@ -12,6 +12,7 @@ a {
   font-weight: 100;
   border-radius: 8px;
   background: black;
+  border: none;
 }
 
 .alex {
@@ -25,7 +26,6 @@ a {
 }
 
 .news_message {
-  width: 80%;
   display: flex;
   background-color: rgb(246, 245, 239, 1);
 }
@@ -35,7 +35,9 @@ a {
 }
 
 .chat_message .news_container {
-  background-color: rgb(218, 214, 192);
+  background-color: rgb(246, 245, 239, 1);
+  border-radius: 12px;
+  padding: 0px 16px;
 }
 
 .icon_alex {
@@ -73,7 +75,7 @@ h3 {
 
 h4 {
   color: #444;
-  font-family: 'SFProText-Regular', Arial, Helvetica, sans-serif sans-serif;
+  font-family: 'SFProText-Regular', Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 200;
   letter-spacing: 0.04em;

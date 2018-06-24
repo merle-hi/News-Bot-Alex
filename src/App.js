@@ -11,7 +11,7 @@ import {
   getNewsByCategory,
   addToChat,
   updateIndexCount,
-  updateButtonLink
+  updateButtonLink,
 } from './Actions/Actions'
 
 import '../src/css/App.css'
@@ -89,6 +89,7 @@ const mapStateToProps = state => ({
   buttonText: state.buttonText,
   buttonLink: state.buttonLink,
   selectedCategory: state.selectedCategory
+
 })
 
 export default connect(
