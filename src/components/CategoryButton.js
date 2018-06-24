@@ -4,12 +4,13 @@ import { css } from 'emotion'
 const buttonStyle = css`
   display: inline-block;
   background-color: black;
-  border-radius: 5px;
-  border: 2px solid grey;
-  padding: 3px 12px;
-  margin: 5px;
-  font-family: 'PlayfairDisplay-Bold', Times, serif;
-  color: white;
+  border-radius: 6px;
+  padding: 4px 18px 6px;
+  margin: 6px;
+  font-family: 'PlayfairDisplay-Regular', Times, serif;
+  color: rgb(246, 245, 239, 1);
+  letter-spacing: 0.02rem;
+  font-size: 18;
 `
 
 export default class CategoryButton extends Component {
