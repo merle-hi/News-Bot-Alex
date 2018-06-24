@@ -1,6 +1,6 @@
 export default {
   newsItems: [],
-  myNewsChat: [
+  myChat: [
     {
       title:
         'Hey there. I´m Alex. Nice to meet you and welcome to my Journal! Cheers! 🍸',
@@ -9,7 +9,7 @@ export default {
       sender: 'alex',
     },
   ],
-  index: 0,
+  newsMessageIndex: 0,
   status: 'start',
   buttonText: [
     'I would like to see some News!',
@@ -25,6 +25,8 @@ export default {
     { id: 'health', text: 'health' },
     { id: 'science', text: 'science' },
     { id: 'sport', text: 'sport' },
-    { id: 'technology', text: 'technology' },
+    { id: 'technology', text: 'technology' }
   ],
+  selectedCategory: 'general'
+
 }
