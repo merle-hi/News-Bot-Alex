@@ -11,7 +11,7 @@ import {
   getNewsByCategory,
   addToChat,
   updateIndexCount,
-  updateButtonLink,
+  updateButtonLink
 } from './Actions/Actions'
 
 import '../src/css/App.css'
@@ -69,11 +69,13 @@ class App extends Component {
                 </a>
               )}
             </div>
-            <Button
-              buttonText={this.props.buttonText}
-              status={this.props.status}
-              onClick={this.addToChat}
-            />
+            {this.props.status !== 'start' && (
+              <Button
+                buttonText={this.props.buttonText}
+                status={this.props.status}
+                onClick={this.addToChat}
+              />
+            )}
           </footer>
         </div>
       </div>
@@ -89,7 +91,6 @@ const mapStateToProps = state => ({
   buttonText: state.buttonText,
   buttonLink: state.buttonLink,
   selectedCategory: state.selectedCategory
-
 })
 
 export default connect(
