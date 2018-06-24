@@ -8,7 +8,7 @@ import Headlines from './components/Headlines'
 import Categories from './components/Categories'
 
 import {
-  getNewsItems,
+  getNewsByCategory,
   addToChat,
   updateIndexCount,
   updateButtonLink
@@ -19,17 +19,25 @@ import '../src/css/button.css'
 
 class App extends Component {
   componentDidMount = () => {
-    this.props.getNewsItems()
+    this.props.getNewsByCategory(this.props.selectedCategory)
+    console.log('did mount')
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     window.scrollTo(0, document.body.scrollHeight)
+    if (prevProps.newsItems !== this.props.newsItems) {
+      console.log('update', prevProps.newsItems, prevState)
+    } else {
+      console.log('no  changes', prevProps.newsItems)
+    }
+
+    //this.props.getNewsByCategory(this.props.selectedCategory)
   }
 
   addToChat = buttonText => {
     let newMessage = { title: 'Alex', description: buttonText }
     this.props.addToChat(newMessage)
-    let myArticle = this.props.newsItems[this.props.index]
+    let myArticle = this.props.newsItems[this.props.newsMessageIndex]
     myArticle.sender = 'alex'
     this.props.addToChat(myArticle)
     this.props.updateIndexCount()
@@ -50,7 +58,7 @@ class App extends Component {
         </header>
 
         <div className="newsfeed">
-          {<NewsFeed myNewsChat={this.props.myNewsChat} />}
+          {<NewsFeed myChat={this.props.myChat} />}
           <footer>
             <div>
               {this.props.status === 'start' && <Categories />}
@@ -75,14 +83,15 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   newsItems: state.newsItems,
-  myNewsChat: state.myNewsChat,
-  index: state.index,
+  myChat: state.myChat,
+  newsMessageIndex: state.newsMessageIndex,
   status: state.status,
   buttonText: state.buttonText,
-  buttonLink: state.buttonLink
+  buttonLink: state.buttonLink,
+  selectedCategory: state.selectedCategory
 })
 
 export default connect(
   mapStateToProps,
-  { getNewsItems, addToChat, updateIndexCount, updateButtonLink }
+  { getNewsByCategory, addToChat, updateIndexCount, updateButtonLink }
 )(App)

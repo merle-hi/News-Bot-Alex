@@ -1,13 +1,13 @@
 export default {
   newsItems: [],
-  myNewsChat: [
+  myChat: [
     {
       title: 'Introduction',
       description: 'This is how to use Alex',
       sender: 'alex'
     }
   ],
-  index: 0,
+  newsMessageIndex: 0,
   status: 'start',
   buttonText: [
     'I would like to see some News!',
@@ -24,5 +24,6 @@ export default {
     { id: 'science', text: 'science' },
     { id: 'sport', text: 'sport' },
     { id: 'technology', text: 'technology' }
-  ]
+  ],
+  selectedCategory: 'general'
 }

@@ -5,7 +5,7 @@ import AlexIcon from '../img/Alex_Logo.svg'
 
 export default class NewsFeed extends Component {
   renderNewsList() {
-    return this.props.myNewsChat.map(
+    return this.props.myChat.map(
       article =>
         article.sender === 'alex' ? (
           <div className="alex" key={uid(10)}>
