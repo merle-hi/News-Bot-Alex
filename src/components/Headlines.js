@@ -18,7 +18,7 @@ export class Headlines extends Component {
 }
 
 const mapStateToProps = state => ({
-  myHeadlines: state.myHeadlines
+  myHeadlines: state.myHeadlines,
 })
 
 export default connect(
