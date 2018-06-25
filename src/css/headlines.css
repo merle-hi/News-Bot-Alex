@@ -1,19 +1,24 @@
 a {
   text-decoration: none;
-  color: #555;
+  color: #3b3b3b;
 }
 
 .headlines_container {
   display: flex;
-  font-size: 0.7rem;
   text-align: left;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .headline {
+  font-family: 'SFProText-Light', sans-serif;
+  font-size: 10px;
+  line-height: 0.86rem;
+  letter-spacing: 0.016rem;
   width: 33%;
-  padding: 5px;
-  border-right: 1px solid black;
+  padding: 0px 6px 0px 10px;
+  border-right: 1px solid rgb(145, 145, 145);
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .headline:last-child {

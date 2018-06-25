@@ -7,14 +7,14 @@ import {
   addToChat,
   setCategory,
   updateButtonLink,
-  updateIndexCount
+  updateIndexCount,
 } from '../Actions/Actions'
 
 const categories = css`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding 0 10%;
+  padding: 0 10%;
 `
 
 export class Categories extends Component {
@@ -53,7 +53,7 @@ export class Categories extends Component {
 const mapStateToProps = state => ({
   newsItems: state.newsItems,
   newsMessageIndex: state.newsMessageIndex,
-  categories: state.categories
+  categories: state.categories,
 })
 
 export default connect(
@@ -63,6 +63,6 @@ export default connect(
     addToChat,
     setCategory,
     updateButtonLink,
-    updateIndexCount
+    updateIndexCount,
   }
 )(Categories)

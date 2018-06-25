@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import uid from 'uid'
 import '../css/news.css'
+import '../css/reply.css'
 import AlexIcon from '../img/Alex_Logo.svg'
 
 export default class NewsFeed extends Component {
@@ -54,8 +55,8 @@ export default class NewsFeed extends Component {
           </div>
         ) : (
           <div className="user" key={uid(10)}>
-            <div className="chat_message">
-              <div className="news_container">
+            <div className="user_message">
+              <div className="user_reply">
                 {/*<h3>{article.title}</h3>*/}
                 <p>{article.description}</p>
               </div>

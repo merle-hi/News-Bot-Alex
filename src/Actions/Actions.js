@@ -4,7 +4,7 @@ import {
   UPDATE_INDEX_COUNT,
   UPDATE_BUTTON_LINK,
   SET_HEADLINES,
-  SET_CATEGORY
+  SET_CATEGORY,
 } from './types'
 
 const NewsAPI = require('newsapi')
@@ -14,7 +14,7 @@ const myHeadlines = []
 
 export const getNewsByCategory = selectedCat => dispatch => {
   newsapi.v2
-    .topHeadlines({ language: 'de', country: 'de', category: selectedCat })
+    .topHeadlines({ language: 'en', country: 'us', category: selectedCat })
     .then(response => {
       dispatch({ type: GET_NEWS_BY_CATEGORY, payload: response.articles })
       const newsItems = response.articles

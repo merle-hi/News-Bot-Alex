@@ -39,6 +39,7 @@ header {
 }
 
 hr {
+  width: 100%;
   background-color: rgb(246, 245, 239, 1);
   border-width: 0;
   margin-top: 8px;
@@ -55,4 +56,8 @@ footer {
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+p {
+  margin: 0;
 }

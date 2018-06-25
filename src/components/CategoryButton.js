@@ -4,7 +4,7 @@ import { css } from 'emotion'
 const buttonStyle = css`
   display: inline-block;
   background-color: black;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 4px 18px 6px;
   margin: 6px;
   font-family: 'PlayfairDisplay-Regular', Times, serif;

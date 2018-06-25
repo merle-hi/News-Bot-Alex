@@ -5,7 +5,7 @@ export default {
       title:
         'Hey there. I´m Alex. Nice to meet you and welcome to my Journal! Cheers! 🍸',
       description:
-        'I am your personal News Moderator. At first: please choose a topic. ',
+        'I am your personal Newscaster. What are you interested in right now? Just select a topic from below. ',
       sender: 'alex',
     },
   ],
@@ -19,14 +19,13 @@ export default {
   myHeadlines: [],
   buttonLink: '',
   categories: [
-    { id: 'business', text: 'business' },
-    { id: 'entertainment', text: 'entertainment' },
-    { id: 'general', text: 'general' },
-    { id: 'health', text: 'health' },
-    { id: 'science', text: 'science' },
-    { id: 'sport', text: 'sport' },
-    { id: 'technology', text: 'technology' }
+    { id: 'general', text: 'General' },
+    { id: 'business', text: 'Business' },
+    { id: 'technology', text: 'Tech' },
+    { id: 'health', text: 'Health' },
+    { id: 'science', text: 'Science' },
+    { id: 'sport', text: 'Sport' },
+    { id: 'entertainment', text: 'Entertainment' },
   ],
-  selectedCategory: 'general'
-
+  selectedCategory: 'general',
 }
